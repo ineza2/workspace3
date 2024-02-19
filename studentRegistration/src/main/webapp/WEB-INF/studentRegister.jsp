@@ -1,0 +1,163 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html>
+<head>
+    <title>Register Student</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FF5733;
+        }
+
+        .btn-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-green {
+            background-color: #2ecc71;
+        }
+
+        .btn-blue {
+            background-color: #3498db;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>User Management</h1>
+    <div class="btn-container">
+        <a href="new" class="btn btn-green">Add New User</a>
+        <a href="list" class="btn btn-blue">List All Students</a>
+    </div>
+</div>
+
+<div class="form-container">
+    <c:choose>
+        <c:when test="${student != null}">
+            <form action="update" method="post">
+                <input type="hidden" name="id" value="<c:out value='${student.id}' />"/>
+        </c:when>
+        <c:otherwise>
+            <form action="insert" method="post">
+        </c:otherwise>
+    </c:choose>
+
+    <h2>
+        <c:choose>
+            <c:when test="${student != null}">
+                Edit Student
+            </c:when>
+            <c:otherwise>
+                Add New Student
+            </c:otherwise>
+        </c:choose>
+    </h2>
+
+    <c:if test="${student != null}">
+        <input type="hidden" name="id" value="<c:out value='${student.id}' />"/>
+    </c:if>
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="<c:out value='${student.name}' />"/>
+    </div>
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" value="<c:out value='${student.age}' />"/>
+    </div>
+    <div class="form-group">
+        <label for="dob">DOB:</label>
+        <input type="date" name="dob" id="dob" value="<c:out value='${student.dob}' />"/>
+    </div>
+    <div class="form-group">
+        <label for="school">School:</label>
+        <input type="text" name="school" id="school" value="<c:out value='${student.school}' />"/>
+    </div>
+    <div class="form-group">
+        <label for="code">Code:</label>
+        <input type="text" name="code" id="code" value="<c:out value='${student.code}' />"/>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="<c:out value='${student.email}' />"/>
+    </div>
+    <div class="form-group">
+        <label for="mobile">Mobile:</label>
+        <input type="tel" name="mobile" id="mobile" value="<c:out value='${student.mobile}' />"/>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save"/>
+    </div>
+</div>
+
+</body>
+</html>

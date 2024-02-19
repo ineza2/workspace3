@@ -1,0 +1,5 @@
+package mjt.models;
+
+public class Employee {
+
+}

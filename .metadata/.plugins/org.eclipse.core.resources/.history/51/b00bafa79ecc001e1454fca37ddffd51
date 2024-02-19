@@ -1,0 +1,5 @@
+package mjt.util;
+
+public class HibernateUtil {
+
+}

@@ -1,0 +1,5 @@
+package java.student.registration.util;
+
+public class ValidationUtils {
+
+}

@@ -1,0 +1,122 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html>
+<head>
+<title>Guest</title>
+<style>
+    body {
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    .btn-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-right: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-green {
+        background-color: #28a745;
+        text-decoration:none;
+    }
+
+    .btn-blue {
+        background-color: #007bff;
+        text-decoration:none;
+    }
+
+    .btn-red {
+        background-color: #dc3545;
+        text-decoration:none;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        color: #333;
+    }
+
+    td {
+        color: #555;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome Guest!</h1>
+<div class="container">
+
+    <div class="btn-container">
+        <a href="list2" class="btn btn-blue">List of All Students</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>DOB</th>
+                <th>School</th>
+                <th>Code</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="student" items="${result}">
+                <tr>
+                    <td><c:out value="${student.id}" /></td>
+                    <td><c:out value="${student.name}" /></td>
+                    <td><c:out value="${student.age}" /></td>
+                    <td><c:out value="${student.dob}" /></td>
+                    <td><c:out value="${student.school}" /></td>
+                    <td><c:out value="${student.code}" /></td>
+                    <td><c:out value="${student.email}" /></td>
+                    <td><c:out value="${student.mobile}" /></td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
