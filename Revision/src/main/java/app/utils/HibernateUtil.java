@@ -9,6 +9,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
+import app.models.Department;
 import app.models.Employee;
 
 
@@ -40,6 +41,7 @@ public class HibernateUtil {
 			settings.put(Environment.HBM2DDL_AUTO, "create-drop");
 			configuration.setProperties(settings);
 			configuration.addAnnotatedClass(Employee.class);
+			configuration.addAnnotatedClass(Department.class);
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 					.applySettings(configuration.getProperties()).build();
 			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
