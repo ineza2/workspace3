@@ -1,11 +1,13 @@
 package app.models;
 
 import jakarta.persistence.Column;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Employee {
@@ -23,9 +25,11 @@ public class Employee {
 	private String mobile;
 	@ManyToOne
 	private Department department;
+	@OneToOne
+	private Salary salary;
 	
 	
-	public Employee(String firstName, String lastName, String email, String position, String mobile, Department department) {
+	public Employee(String firstName, String lastName, String email, String position, String mobile, Department department, Salary salary) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -33,6 +37,7 @@ public class Employee {
 		this.position = position;
 		this.mobile = mobile;
 		this.department=department;
+		this.salary=salary;
 	}
 
 	public int getId() {
@@ -82,6 +87,13 @@ public class Employee {
 
 	public void setDepartment(Department department) {
 		this.department = department;
+	}
+	public Salary getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Salary salary) {
+		this.salary = salary;
 	}
 	
 	
