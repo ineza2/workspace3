@@ -1,6 +1,7 @@
 package app.services;
 
 import org.hibernate.Session;
+
 import org.hibernate.SessionFactory;
 import app.models.Department;
 import app.utils.HibernateUtil;
