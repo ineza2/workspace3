@@ -16,7 +16,12 @@ public class Salary {
 	    
 	@OneToOne(mappedBy="salary")
 	private Employee employee;
+	
 	 
+	public Salary() {
+		super();
+	}
+
 	public Salary(int amount) {
 		super();
 		this.amount = amount;
@@ -47,9 +52,7 @@ public class Salary {
 		this.amount = amount;
 	}
 
-	public Salary() {
-		super();
-	}
+
 	
 	
 	

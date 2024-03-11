@@ -10,7 +10,7 @@ public class Program {
 		SalaryServices ss=SalaryServices.getInstance();
 		Salary s1= new Salary(100000);
 		ss.addSalary(s1);
-		Salary savedSalary=ss.getSalaryById(0);
+		Salary savedSalary=ss.getSalaryById(1);
 		
 		PositionServices pp=PositionServices.getInstance();
 		Position p1= new Position("Accountant");

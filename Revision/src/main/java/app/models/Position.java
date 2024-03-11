@@ -13,6 +13,12 @@ public class Position {
 	@OneToOne(mappedBy="position")
 	private Department department;
 	
+	
+	public Position() {
+		super();
+	}
+
+
 	public int getId() {
 		return id;
 	}
