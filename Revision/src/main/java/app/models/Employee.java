@@ -21,23 +21,41 @@ public class Employee {
 	private String lastName;
 	@Column(name="email", nullable=false, length=200, unique=true)
 	private String email;
-	private String position;
+	private String work;
 	private String mobile;
 	@ManyToOne
 	private Department department;
 	@OneToOne
 	private Salary salary;
+	@OneToOne
+	private Position position;
 	
 	
-	public Employee(String firstName, String lastName, String email, String position, String mobile, Department department, Salary salary) {
+	
+	public Employee(String firstName, String lastName, String email, String work, String mobile, Department department, Salary salary, Position position) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.position = position;
+		this.work = work;
 		this.mobile = mobile;
 		this.department=department;
 		this.salary=salary;
+		this.position = position;
+	}
+
+	public Employee(int id, String firstName, String lastName, String email, String work, String mobile,
+			Department department, Salary salary, Position position) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.work = work;
+		this.mobile = mobile;
+		this.department = department;
+		this.salary = salary;
+		this.position = position;
 	}
 
 	public int getId() {
@@ -65,11 +83,11 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPosition() {
-		return position;
+	public String getWork() {
+		return work;
 	}
-	public void setPosition(String position) {
-		this.position = position;
+	public void setWork(String work) {
+		this.work = work;
 	}
 	public String getMobile() {
 		return mobile;
@@ -95,6 +113,15 @@ public class Employee {
 	public void setSalary(Salary salary) {
 		this.salary = salary;
 	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+	
 	
 	
 	

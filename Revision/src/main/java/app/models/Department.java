@@ -6,6 +6,7 @@ import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Department {
@@ -16,6 +17,9 @@ public class Department {
 	
 	@OneToMany(mappedBy="department")
 	private List<Employee> employees;
+	
+	@OneToOne
+	private Position position;
 	
 	public Department(String name) {
 		super();
@@ -43,6 +47,11 @@ public class Department {
 		super();
 	}
 	
+	public Position getPosition() {
+		return position;
+	}
+	public void setPosition(Position position) {
+		this.position = position;
+	}
 	
-
 }
