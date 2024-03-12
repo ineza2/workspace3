@@ -12,6 +12,7 @@ import org.hibernate.service.ServiceRegistry;
 import app.models.Department;
 import app.models.Employee;
 import app.models.Position;
+import app.models.Projects;
 import app.models.Salary;
 
 
@@ -46,6 +47,7 @@ public class HibernateUtil {
 			configuration.addAnnotatedClass(Department.class);
 			configuration.addAnnotatedClass(Salary.class);
 			configuration.addAnnotatedClass(Position.class);
+			configuration.addAnnotatedClass(Projects.class);
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 					.applySettings(configuration.getProperties()).build();
 			sessionFactory = configuration.buildSessionFactory(serviceRegistry);

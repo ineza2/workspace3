@@ -5,6 +5,7 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -20,6 +21,20 @@ public class Department {
 	
 	@OneToOne
 	private Position position;
+	
+	@OneToOne
+	private Projects projects;
+	
+	
+	
+	public Department(int id, String name, List<Employee> employees, Position position, Projects projects) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.employees = employees;
+		this.position = position;
+		this.projects = projects;
+	}
 	
 	public Department(String name) {
 		super();
@@ -53,5 +68,12 @@ public class Department {
 	public void setPosition(Position position) {
 		this.position = position;
 	}
+	public Projects getProjects() {
+		return projects;
+	}
+	public void setProjects(Projects projects) {
+		this.projects = projects;
+	}
+	
 	
 }

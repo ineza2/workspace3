@@ -25,6 +25,8 @@ public class Employee {
 	private String mobile;
 	@ManyToOne
 	private Department department;
+	@ManyToOne
+	private Projects projects;
 	@OneToOne
 	private Salary salary;
 	@OneToOne
@@ -32,20 +34,9 @@ public class Employee {
 	
 	
 	
-	public Employee(String firstName, String lastName, String email, String work, String mobile, Department department, Salary salary, Position position) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.work = work;
-		this.mobile = mobile;
-		this.department=department;
-		this.salary=salary;
-		this.position = position;
-	}
-
+	
 	public Employee(int id, String firstName, String lastName, String email, String work, String mobile,
-			Department department, Salary salary, Position position) {
+			Department department, Projects projects, Salary salary, Position position) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -54,9 +45,37 @@ public class Employee {
 		this.work = work;
 		this.mobile = mobile;
 		this.department = department;
+		this.projects = projects;
 		this.salary = salary;
 		this.position = position;
 	}
+
+	public Employee(String firstName, String lastName, String email, String work, String mobile, Department department, Projects projects ,Salary salary, Position position) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.work = work;
+		this.mobile = mobile;
+		this.department=department;
+		this.projects=projects;
+		this.salary=salary;
+		this.position = position;
+	}
+//
+//	public Employee(int id, String firstName, String lastName, String email, String work, String mobile,
+//			Department department, Salary salary, Position position) {
+//		super();
+//		this.id = id;
+//		this.firstName = firstName;
+//		this.lastName = lastName;
+//		this.email = email;
+//		this.work = work;
+//		this.mobile = mobile;
+//		this.department = department;
+//		this.salary = salary;
+//		this.position = position;
+//	}
 
 	public int getId() {
 		return id;
