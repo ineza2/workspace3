@@ -22,12 +22,18 @@ public class DepartmentServices {
 	}
 	
 	public void addDepartment(Department dp) {
+		try {
 		
 		session=sf.openSession();
 		session.beginTransaction();
 		session.save(dp);
 		session.getTransaction().commit();
+		}finally {
+			if(session !=null) {
+				session.close();
+			}
 		}
+	}
 	
 //	public List<Employee> getAllEmployees(){
 //		session=sf.openSession();
